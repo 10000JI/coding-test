@@ -18,7 +18,7 @@ class ExampleOne {
 //                answer++;
 //        }
         //toCharArray(): "문자열"을 각각의 문자를 원소로 갖는 "문자배열"로 생성
-        //0번 인덱스부터 str.toCharArray() 문자배열의 마지막 인덱스까지
+        //x는 0번 인덱스 값부터 str.toCharArray() 문자배열의 마지막 인덱스 값
         for(char x : str.toCharArray()){
             if(x == t)
                 answer++;
