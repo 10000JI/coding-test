@@ -12,9 +12,15 @@ class ExampleOne {
         //t는 문자이기 때문에 Character 클래스의 메소드로 대문자 변경
         t = Character.toUpperCase(t);
         //System.out.println(str+" "+t);
-        for (int i = 0; i < str.length(); i++) {
-            //str 문자열을 0부터 str 길이까지의 인덱스번호로 접근
-            if (str.charAt(i) == t)
+//        for (int i = 0; i < str.length(); i++) {
+//            //str 문자열을 0부터 str 길이까지의 인덱스번호로 접근
+//            if (str.charAt(i) == t)
+//                answer++;
+//        }
+        //toCharArray(): "문자열"을 각각의 문자를 원소로 갖는 "문자배열"로 생성
+        //0번 인덱스부터 str.toCharArray() 문자배열의 마지막 인덱스까지
+        for(char x : str.toCharArray()){
+            if(x == t)
                 answer++;
         }
         return answer;
