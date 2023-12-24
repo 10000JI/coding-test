@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-//특정 문자 뒤집기
+//단어 뒤집기
 class ExampleFour {
     public List<String> solution(String[] strings){
         List<String> answer = new ArrayList<>();
