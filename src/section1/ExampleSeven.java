@@ -8,7 +8,7 @@ class ExampleSeven {
         String answer = "NO";
 
         /**
-         * 문자배열의 인덱스 번호로 비교 ( length() / 2 사용 )
+         * (1) 문자배열의 인덱스 번호로 비교 ( length() / 2 사용 )
          */
 //        str = str.toUpperCase();
 //        int len = str.length();
@@ -19,7 +19,7 @@ class ExampleSeven {
 //        }
 
         /**
-         * StringBuilder()의 reverse() 사용
+         * (2) StringBuilder()의 reverse() 사용
          */
         String string = new StringBuilder(str).reverse().toString();
         //equalsIgnoreCase(): 대소문자 무시
