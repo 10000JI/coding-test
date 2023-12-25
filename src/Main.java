@@ -1,17 +1,23 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public class Main {
-    public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
-
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
-
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+    public String solution(int number, String str) {
+        String answer = "";
+        for (int i = 0; i < number; i++) {
+            String tmp = str.substring(0, 7).replace('#', '1').replace('*', '0');
+            answer += (char) Integer.parseInt(tmp, 2);
+            str = str.substring(7);
         }
+        return answer;
+    }
+
+    public static void main(String[] args) {
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        int number = kb.nextInt();
+        String str = kb.next();
+        System.out.println(T.solution(number, str));
     }
 }
