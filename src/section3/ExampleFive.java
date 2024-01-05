@@ -3,23 +3,22 @@ package section3;
 import java.util.Scanner;
 
 //연속된 자연수의 합 (경우의 수)
-//연속 부분수열 과 유사!!
 public class ExampleFive {
     public int solution(int n) {
-        int answer = 0, sum = 0, lt = 0;
-        int m = n / 2 + 1; //실제론 1부터 세지만 lt, for문의 i가 0으로 초기화 되어있기 때문에
-        int[] arr = new int[m]; //정렬된 배열
-        //arr에 대입한 후
-        for (int i = 0; i < m; i++) arr[i] = i + 1;
-        for (int rt = 0; rt < m; rt++) {
-            //arr의 값을 조건에 맞게 sum에 대입
-            sum += arr[rt];
-            if (sum == n) answer++;
-            while(sum>=n){
-                sum -= arr[lt++];
-                if(sum==n) answer++;
+        int answer = 0, cnt = 1;
+        //n이 15라면 14로 -1
+        n--;
+        while (n > 0) {
+            //첫번째 while문에서 cnt가 2로 증가
+            cnt++;
+            //14인 n은 -2하여 12가 된다 (=while문 전에 1빼고, while문 안에서 2를 뺐다.)
+            n=n-cnt;
+            //n이 cnt로 나눴을때 나머지가 0이라는 것은 "연속된 자연수가 15가 된다는 것"
+            if (n % cnt == 0) {
+                answer++;
             }
         }
+
         return answer;
     }
     public static void main(String[] args) {
