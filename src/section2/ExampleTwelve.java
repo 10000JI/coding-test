@@ -16,6 +16,7 @@ public class ExampleTwelve {
                         if(arr[k][s]==i) pi=s;
                         if(arr[k][s]==j) pj=s;
                     }
+                    //등수비교
                     if(pi<pj) cnt++;
                 }
                 if(cnt==m){
