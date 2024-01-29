@@ -14,7 +14,22 @@ class Node{
 //이진트리 순회(깊이우선탐색)
 public class ExampleFive {
     Node root;
+
+    // 들어온 매개변수 root는 100번지
     public void DFS(Node root) {
+        //root가 null이면 말단 노드로 온 것
+        if(root==null) return;
+        else {
+            //root 노드에서는 lt와 rt 모두 뻗어 가야됨
+            /**
+             * 후위순회
+             */
+            //(1) lt 먼저 수행한 후 (root.lt.lt->root.lt.rt, 여기서 root.lt는 매개변수 root로 다시 받음)
+            //(2) 모든 로직이 돌면 rt 수행 (root.rt.lt->root.rt.rt, 여기서 root.rt는 매개변수 root로 다시 받음)
+            DFS(root.lt);
+            DFS(root.rt);
+            System.out.print(root.data+" ");
+        }
     }
 
     public static void main(String args[]) {
@@ -30,6 +45,7 @@ public class ExampleFive {
         T.root.lt.rt = new Node(5);
         T.root.rt.lt = new Node(6);
         T.root.rt.rt = new Node(7);
+        //T.root는 그림과 같은 100번지 주소
         T.DFS(T.root);
     }
 }
