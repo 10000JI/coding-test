@@ -7,8 +7,8 @@ public class ExampleTwo2 {
     public void solution(int n) {
         if(n==0) return;
         else{
-            System.out.println(n%2 + " ");
             solution(n/2);
+            System.out.print(n%2 + " ");
         }
     }
 
