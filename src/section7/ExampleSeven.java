@@ -2,6 +2,9 @@ package section7;
 
 //이진트리 순회(깊이우선탐색)
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 class Node2{
     int data;
     //인스턴스 변수 lt, rt는 Node라는 객체 주소를 저장
@@ -18,6 +21,27 @@ public class ExampleSeven {
 
     // 들어온 매개변수 root는 100번지
     public void BFS(Node2 root) {
+        Queue<Node2> Q = new LinkedList<>();
+        Q.offer(root);
+        //L : 레벨
+        int L = 0;
+        while (!Q.isEmpty()) {
+            //해당 레벨의 Q의 사이즈
+            int len = Q.size();
+            System.out.print(L+ " : " );
+            for (int i = 0; i < len; i++) {
+                //Q에 가장 먼저 추가된 Node2부터 cur이라는 변수에 대입 후 삭제
+                Node2 cur = Q.poll();
+                System.out.print(cur.data + " ");
+                //상위노드의 lt가 존재하면 Q에 추가
+                if(cur.lt!=null) Q.offer(cur.lt);
+                //상위노드의 rt가 존재하면 Q에 추가
+                if(cur.rt!=null) Q.offer(cur.rt);
+            }
+            //다음 레벨 +1
+            L++;
+            System.out.println();
+        }
     }
 
     public static void main(String args[]) {
