@@ -14,11 +14,11 @@ public class ExampleThree {
          * 방법 1 , sliding window 방식
          */
 //        for (int i = 0; i < k; i++) {
-//            //초기에 0부터 3 인덱스까지의 arr을 map에 저장
+//            //초기에 0부터 4 인덱스까지의 arr을 map에 저장
 //            //arr[0]와 arr[2]는 20이므로 동일 Key이다. -> Key는 중복이 불가능하고, value를 2로 설정해주자
 //            map.put(arr[i], map.getOrDefault(arr[i], 0) + 1);
 //        }
-//        //초기 0번부터 3까지의 map 사이즈 (20,12,10 -> 3) list에 저장
+//        //초기 0번부터 4까지의 map 사이즈 (20,12,10 -> 4) list에 저장
 //        list.add(map.size());
 //        //다음 인덱스 번호의 값을 map에 추가해주고, 맨 처음으로 오는 인덱스 번호의 값을 map에서 삭제
 //        for (int i = k; i < n; i++) {
@@ -34,7 +34,7 @@ public class ExampleThree {
         /**
          * 방법 2, two point 알고리즘 방식 (rt, lt)
          */
-        //3일을 구간 먼저 세팅
+        //4일을 구간 먼저 세팅
         for (int i = 0; i < k - 1; i++) {
             map.put(arr[i], map.getOrDefault(arr[i], 0) + 1);
         }

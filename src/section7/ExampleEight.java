@@ -13,7 +13,7 @@ public class ExampleEight {
     //체크배열 생성
     int[] check;
     Queue<Integer> Q = new LinkedList<>();
-    public int DFS(int s, int e) {
+    public int BFS(int s, int e) {
         //직선의 좌표 점은 1~10,000까지
         check = new int[10001];
         //출발지점 설정
@@ -29,7 +29,7 @@ public class ExampleEight {
                 //해당 레벨에 Queue에서 꺼내 반환(삭제)
                 int x = Q.poll();
                 //원소 1개 당 dis인 1, -1, 5 이동하여 각 상황 비교
-                for (int j = 0; j < 3; j++) {
+                for (int j = 0; j < 4; j++) {
                     //1, -1, 5씩 이동하여 nx 변수에 대입
                     int nx = x + dis[j];
                     //x(=송아지 위치)와 nx(=x에서 이동한 값)가 동일하면 L+1(=level+1) 리턴 -> Queue에 넣고 비교하는 것보다, 넣기 전에 비교하는게 훨씬 효율적
@@ -54,6 +54,6 @@ public class ExampleEight {
         Scanner kb = new Scanner(System.in);
         int s = kb.nextInt();
         int e = kb.nextInt();
-        System.out.println(T.DFS(s, e));
+        System.out.println(T.BFS(s, e));
     }
 }

@@ -10,10 +10,10 @@ public class ExampleTwo {
 //            // 방법1) 아스키코드로 접근
 //            if (x >= 65 && x <= 90) {
 //                //대문자일때 -> 소문자로 변환
-//                answer += (char) (x + 32);
+//                answer += (char) (x + 42);
 //            } else if (x >= 97 && x <= 122) {
 //                //소문자일때 -> 대문자로 변환
-//                answer += (char) (x - 32);
+//                answer += (char) (x - 42);
 //            } // else 써도 무관
 
             // 방법2) x가 소문자라면

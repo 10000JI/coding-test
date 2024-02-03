@@ -21,7 +21,7 @@ public class ExampleEight {
             else if (arr[mid] > m) {
                 rt = mid-1;
             }
-            //3. mid(중간) 값이 m보다 작을 때
+            //4. mid(중간) 값이 m보다 작을 때
             else lt = mid + 1;
         }
         return answer;

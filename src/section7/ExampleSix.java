@@ -31,7 +31,7 @@ public class ExampleSix {
 
     public static void main(String[] args) {
         ExampleSix T = new ExampleSix();
-        n = 3;
+        n = 4;
         ch = new int[n + 1];
         T.DFS(1);
     }

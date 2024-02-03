@@ -9,7 +9,7 @@ public class ExampleNine {
         //cnt: dvd 장수, sum: dvd에 담아내는 곡들의 크기
         int cnt = 1, sum = 0;
         for (int x : arr) {
-            //sum과 arr의 인덱스들의 값을 더하는데 dvd 한장의 용량을 넘어가는 순간 ({1 2 3 4 5} 이후..)
+            //sum과 arr의 인덱스들의 값을 더하는데 dvd 한장의 용량을 넘어가는 순간 ({1 2 4 4 5} 이후..)
             if (sum + x > capacity) {
                 //새로운 장수가 필요함 (한 장은 이미 꽉 차고 두번째 장수를 채우는 것) ({6,7}로 채워가자)
                 cnt++;

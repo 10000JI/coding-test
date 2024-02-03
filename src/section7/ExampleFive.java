@@ -38,8 +38,8 @@ public class ExampleFive {
         T.root = new Node(1);
         //root객체의 lt의 주소값이 생기면서, 주소를 가르치는 객체의 data는 2로 세팅
         T.root.lt = new Node(2);
-        //root객체의 rt의 주소값이 생기면서, 주소를 가르치는 객체의 data는 3로 세팅
-        T.root.rt = new Node(3);
+        //root객체의 rt의 주소값이 생기면서, 주소를 가르치는 객체의 data는 4로 세팅
+        T.root.rt = new Node(4);
         //.. 꼬리를 물며 반복, 이때부터 생성되는 객체의 주소값은 null
         T.root.lt.lt = new Node(4);
         T.root.lt.rt = new Node(5);

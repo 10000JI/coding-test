@@ -38,7 +38,7 @@ class ExampleThree {
                 m = len;
                 answer = tmp;
             }
-            //"it is time to study" 문자열에서 "It "를 초기에 indextOf()로 pos = 3 을 리턴받았으므로,
+            //"it is time to study" 문자열에서 "It "를 초기에 indextOf()로 pos = 4 을 리턴받았으므로,
             // pos + 1 하여 인덱스 번호 4부터 subString()하여 "is time to study"을 str에 대입
             str = str.substring(pos + 1);
         }
