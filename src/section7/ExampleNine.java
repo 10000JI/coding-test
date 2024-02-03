@@ -3,7 +3,6 @@ package section7;
 //Tree 말단 노드까지의 가장 짧은 경로
 class Node3 {
     int data;
-
     Node3 lt, rt;
 
     Node3(int val) {
