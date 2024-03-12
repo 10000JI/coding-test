@@ -1,0 +1,11 @@
+package Baekjoon.step1;
+
+public class ExampleTwelve {
+
+    public static void main(String[] args) {
+       System.out.println("\\    /\\");
+       System.out.println(" )  ( ')");
+       System.out.println("(  /  )");
+       System.out.println(" \\(__)|");
+    }
+}
