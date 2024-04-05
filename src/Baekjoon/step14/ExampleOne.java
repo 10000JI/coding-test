@@ -20,7 +20,6 @@ public class ExampleOne {
             int num = Integer.parseInt(st.nextToken());
             sb.append(set.contains(num) ? "1 " : "0 ");
         }
-
         System.out.println(sb);
     }
 }
