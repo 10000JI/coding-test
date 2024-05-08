@@ -1,4 +1,4 @@
-package Sort;
+package sort;
 
 import java.io.*;
 import java.util.*;
@@ -14,13 +14,13 @@ public class Example1517 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
 
-        int n = stoi(br.readLine());
+        int n = Integer.parseInt(br.readLine());
         sorted = new long[n];
         long[] arr = new long[n];
 
         st = new StringTokenizer(br.readLine());
         for(int i=0; i<n; i++)
-            arr[i] = stoi(st.nextToken());
+            arr[i] = Integer.parseInt(st.nextToken());
 
         mergeSort(arr, 0, n-1);
 
@@ -32,11 +32,11 @@ public class Example1517 {
             int mid = (low+high)/2;
             mergeSort(arr, low, mid);
             mergeSort(arr, mid+1, high);
-            merge(arr, low, mid, high);
+            __mergeSort(arr, low, mid, high);
         }
     }
 
-    static void merge(long[] arr, int low, int mid, int high) {
+    static void __mergeSort(long[] arr, int low, int mid, int high) {
         int i = low;
         int j = mid + 1;
         int index = low;
