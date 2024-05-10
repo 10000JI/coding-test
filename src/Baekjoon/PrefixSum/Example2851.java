@@ -1,7 +1,6 @@
-package PrefixSum;
+package Baekjoon.PrefixSum;
 
 import java.io.*;
-import java.util.*;
 
 public class Example2851 {
     public static void main(String[] args) throws IOException {

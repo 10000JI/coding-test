@@ -1,4 +1,4 @@
-package PrefixSum;
+package Baekjoon.PrefixSum;
 
 import java.io.*;
 import java.util.*;

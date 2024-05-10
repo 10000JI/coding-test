@@ -6,7 +6,7 @@ import java.util.*;
 public class ExampleOne {
     public static void main(String[] args) throws IOException {
         /**
-         * 1. Arrays.sort() 이용
+         * 1. Arrays.Baekjoon.sort() 이용
          */
 //        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 //        StringBuilder sb = new StringBuilder();
@@ -15,7 +15,7 @@ public class ExampleOne {
 //        for (int i = 0; i < n; i++) {
 //            arr[i] = Integer.parseInt(br.readLine());
 //        }
-//        Arrays.sort(arr);
+//        Arrays.Baekjoon.sort(arr);
 //        for (int i = 0; i < n; i++) {
 //            sb.append(arr[i]).append("\n");
 //        }
