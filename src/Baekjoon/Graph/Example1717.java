@@ -49,7 +49,7 @@ public class Example1717 {
 
         if (x != y) {
             if (x < y) {
-                parent[y] = x;
+                parent[y] = x; // 부모를 합칠 때에는 일반적으로 더 작은 쪽으로 합쳐짐
             } else {
                 parent[x] = y;
             }
