@@ -18,7 +18,7 @@ public class Example1948 {
         }
         // 진입차수 저장 배열
         int[] indegree = new int[n + 1];
-        // 각 출발 도시(시작노드)부터 도착 도시(마지막노드)까지 거리
+        // 각 출발 도시(시작노드)부터 도착 도시(마지막노드)까지 임계경로(최대시간)
         int[] path = new int[n + 1];
         StringTokenizer st;
         for (int i = 0; i < m; i++) {
