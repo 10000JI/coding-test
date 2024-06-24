@@ -48,7 +48,7 @@ public class Example1916 {
                 int newCost = D[now.toNode] + next.e;
                 if (newCost < D[next.toNode]) {
                     D[next.toNode] = newCost;
-                    que.offer(new Node(next.toNode, newCost));
+                    que.offer(new Node(next.toNode, newCost)); //이미 우선순위 큐에 최단거리 값을 가중치 값으로 넣어주기 때문에 중복 검증 피할 수 있음
                 }
             }
         }
