@@ -18,11 +18,11 @@ public class Example11403 {
         }
 
         //플로이드-워셜
-        for (int K = 0; K < N; K++) {
-            for (int S = 0; S < N; S++) {
-                for (int E = 0; E < N; E++) {
-                    if (D[S][K] == 1 && D[K][E] == 1) {
-                        D[S][E] = 1;
+        for (int k = 0; k < N; k++) {
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < N; j++) {
+                    if (D[i][k] == 1 && D[k][j] == 1) {
+                        D[i][j] = 1;
                     }
                 }
             }
