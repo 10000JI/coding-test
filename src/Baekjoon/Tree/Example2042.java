@@ -2,7 +2,6 @@ package Baekjoon.Tree;
 
 import java.io.*;
 import java.util.*;
-import java.math.*;
 public class Example2042 {
     static long[] tree; // 세그먼트 트리를 저장할 배열
     static int leafStart; // 리프 노드의 시작 인덱스
