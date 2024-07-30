@@ -6,7 +6,7 @@ import java.util.*;
 public class Example11505 {
     static long[] tree;
     static int leafStart;
-    static final int MOD = 1_000_000_007;
+    static final int MOD = 1000000007;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
