@@ -62,7 +62,7 @@ public class Example2042 {
         end = leafStart + end - 1; // 끛노드를 실제 트리 배열 인덱스로 변환
         long sum = 0;// 구간 합을 저장할 변수
 
-        while (start <= end) {
+        while (start <= end) { // 후위연산자로 하는 이유 : 본인 인덱스 값을 sum에 먼저 더하고, 부모노드로 이동하기 위해서
             if (start % 2 == 1) sum += tree[start++]; // 시작노드가 오른쪽 자식노드이면 자신의 부모노드가 아닌 오른쪽에 있는 부모노드로 이동 (하단에서 부모로 이동하기 위해 /2)
             if (end % 2 == 0) sum += tree[end--];  // 끝노드가 왼쪽 자식이면 자신의 부모노드가 아닌 왼쪽에 있는 부모노드로 이동 (하단에서 부모로 이동하기 위해 /2)
             start /= 2;
