@@ -1,9 +1,7 @@
 package didim365;
 
 import java.io.*;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class CustomProcedurePuzzle_8_Success {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -13,13 +11,7 @@ public class CustomProcedurePuzzle_8_Success {
     static int[] moveRow = {-1, 0, 1, 0};
     static int[] moveCol = {0, 1, 0, -1};
     static HashMap<Integer, Integer> visitMap = new HashMap<>(); //한 번의 테스트 시 방문 여부 체크: 순서X 중복(키X,값O)
-    static PriorityQueue<Node> pq = new PriorityQueue<>(new Comparator<Node>() {
-        @Override
-        public int compare(Node o1, Node o2) {
-            if(o1.f == o2.f) return Integer.compare(o1.g, o2.g); //f(n)이 동일하다면 이동회수가 더 적은 노드가 우선순위
-            return Integer.compare(o1.f, o2.f); //f(n)기준으로 작은 수 선택
-        }
-    });
+    static PriorityQueue<Node> pq = new PriorityQueue<>();
 
     public static void main(String[] args) throws IOException {
         System.out.println("아래에 목표 노드를 3x3 형태로 입력해주세요. (빈 퍼즐은 숫자 대신 #을 입력해주세요)");
@@ -49,25 +41,15 @@ public class CustomProcedurePuzzle_8_Success {
             int currentStep = currentNode.g; // 현재 노드의 깊이
 
             if (currentData.equals(goalBoard)) {
-                stepsLog.append("step: " + currentStep).append("\n");
-                for (int i = 0; i < 3; i++) {
-                    String replaceGoalBoard = goalBoard.replace('9', '#');
-                    stepsLog.append(replaceGoalBoard.substring(i * 3, i * 3 + 3)).append("\n");
-                }
-                stepsLog.append("---------").append("\n");
+                //목표 노드까지 stringbuilder에 추가
+                consoleLog(stepsLog, currentStep, goalBoard);
+                bw.write(stepsLog.toString());
                 // 목표 상태에 도달했을 때만 로그를 출력
                 bw.write("목표 상태에 도달했습니다!\n");
-                bw.write(stepsLog.toString());
                 return true;
             }
-
-            stepsLog.append("step: " + currentStep).append("\n");
-
-            String replaceCurrentBoard = currentData.replace('9', '#');
-            for (int i = 0; i < 3; i++) {
-                stepsLog.append(replaceCurrentBoard.substring(i * 3, i * 3 + 3)).append("\n");
-            }
-            stepsLog.append("---------").append("\n");
+            //시작 노드부터 목표노드 이전까지 선택된 노드를 stringbuilder에 추가
+            consoleLog(stepsLog, currentStep, currentData);
 
             int emptyPlaceIndex = currentData.indexOf("9");
             int currentRow = emptyPlaceIndex / 3;
@@ -81,9 +63,9 @@ public class CustomProcedurePuzzle_8_Success {
                     nextData = swap(currentRow, currentCol, newRow, newCol, nextData);
                     String data = nextData.toString();
 
-                    if(visitMap.containsKey(Integer.parseInt(data))) continue;
+                    if(visitMap.containsKey(Integer.parseInt(data))) continue; //이미 본 케이스라면 건너뛴다.
                     else {
-                        int g = currentNode.g + 1;
+                        int g = currentStep + 1; //경로가중치+1
                         int h = getHeuristic(data);
                         int f = g + h;
                         pq.add(new Node(data, g, f));
@@ -95,9 +77,19 @@ public class CustomProcedurePuzzle_8_Success {
         return false;
     }
 
+    private static void consoleLog(StringBuilder stringBuilder, int step, String data) {
+        stringBuilder.append("step: " + step).append("\n");
+        String replaceData = data.replace('9', '#');
+        for (int i = 0; i < 3; i++) {
+            stringBuilder.append(replaceData.substring(i * 3, i * 3 + 3)).append("\n");
+        }
+        stringBuilder.append("---------").append("\n");
+    }
+
 
     private static int getHeuristic(String data) {
         // 목표노드 인덱스 위치의 숫자 값이 동일한지 확인 (h(n)은 작을 수록 좋은 것)
+        // 휴리스틱 방법 Manhattan Distance로 해도 상관없음
         int cnt = 0;
         for (int i = 0; i < data.length(); i++) {
             if (goalBoard.charAt(i) != data.charAt(i)) cnt++; //같은 위치에 같은 숫자가 아니라면 cnt++
@@ -128,10 +120,16 @@ public class CustomProcedurePuzzle_8_Success {
         visitMap.put(Integer.parseInt(str), 0);
     }
 
-    static class Node {
+    static class Node implements Comparable<Node>{
         String data;
         int g; //g(n)
         int f; //f(n)
+
+        @Override
+        public int compareTo(Node o) {
+            if(f == o.f) return Integer.compare(g, o.g); //f(n)이 동일하다면 이동 횟수가 작은 수 석택
+            return Integer.compare(f, o.f); //f(n)기준으로 작은 수 선택
+        }
 
         public Node(String data, int g, int f) {
             this.data = data;
