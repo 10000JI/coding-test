@@ -1,9 +1,10 @@
 package didim365;
 
 import java.io.*;
-import java.util.*;
+import java.util.HashMap;
+import java.util.PriorityQueue;
 
-public class CustomProcedurePuzzle_8_Success {
+public class CustomProcedurePuzzle_8_Success_2 {
     // 입출력을 위한 BufferedReader와 BufferedWriter 선언
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -118,15 +119,22 @@ public class CustomProcedurePuzzle_8_Success {
         stringBuilder.append("---------").append("\n");
     }
 
-    // 휴리스틱 함수: 현재 상태와 목표 상태의 불일치 타일 개수 반환
+    // 휴리스틱 함수: 맨하튼 거리로 풀이
+    // 맨하튼 거리 = 차원 평면 공간에서 두 점 p 와 q 사이의 거리를 측정하는 방법, 두 점 사이의 수평 및 수직 이동 거리의 합
+    // 맨허튼 거리 = ∣p1−q1∣+∣p2−q2∣
     private static int getHeuristic(String data) {
-        int cnt = 0;
+        int totalDistance = 0;
         for (int i = 0; i < data.length(); i++) {
-            if (data.charAt(i) != '#' && goalNode.charAt(i) != data.charAt(i)) {
-                cnt++;
+            if (data.charAt(i) != '#') {
+                int currentRow = i / 3;
+                int currentCol = i % 3;
+                int targetIndex = goalNode.indexOf(data.charAt(i));
+                int targetRow = targetIndex / 3;
+                int targetCol = targetIndex % 3;
+                totalDistance += Math.abs(currentRow - targetRow) + Math.abs(currentCol - targetCol);
             }
         }
-        return cnt;
+        return totalDistance;
     }
 
     // 두 타일의 위치를 교환하는 메소드
